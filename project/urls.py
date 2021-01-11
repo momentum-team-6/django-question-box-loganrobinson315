@@ -16,9 +16,14 @@ Including another URLconf
 from django.contrib import admin
 from django.conf import settings
 from django.urls import include, path
+from core import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('accounts/', include('registration.backends.simple.urls')),
+    path('', views.list_questions, name='list-questions'),
+    path('<int:pk>/edit_question/', views.edit_questions, name='edit-question'),
+    path('<int:pk>/answer_question/', views.add_answer, name='answer-question')
 ]
 
 if settings.DEBUG:

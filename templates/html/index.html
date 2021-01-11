@@ -1,0 +1,10 @@
+<h1>my questions</h1>
+
+{% for question in question %}
+<p>{{ question.title }}</p>
+<p>{{ question.body }}</p>
+<p>{{ question.answer }}</p>
+<a href="#">Detail</a>
+<a href="{% url 'answer-question' pk=question.pk %}">Answer</a>
+<hr>
+{% endfor %}

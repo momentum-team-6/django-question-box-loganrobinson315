@@ -1,0 +1,12 @@
+<h1>Answer Question</h1>
+
+<div>
+    <form action="{% url 'answer-question' pk=question.pk %}" method="POST">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <div>
+        <button type="submit">Update Question</button>
+        <a href="{% url 'list-questions' %}">Cancel</a>
+      </div>
+    </form>
+  </div>
